@@ -80,6 +80,12 @@
 		0BE0A34211A90E3400FBFB1F /* NSString+S3.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0A34011A90E3400FBFB1F /* NSString+S3.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		EB94837916CDE405005BF3EB /* CurlHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = EB94837716CDE405005BF3EB /* CurlHTTP.h */; };
+		EB94837A16CDE405005BF3EB /* CurlHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = EB94837816CDE405005BF3EB /* CurlHTTP.m */; };
+		EB94837D16CDE8E3005BF3EB /* Download.h in Headers */ = {isa = PBXBuildFile; fileRef = EB94837B16CDE8E3005BF3EB /* Download.h */; };
+		EB94837E16CDE8E3005BF3EB /* Download.m in Sources */ = {isa = PBXBuildFile; fileRef = EB94837C16CDE8E3005BF3EB /* Download.m */; };
+		EB94838116CDF194005BF3EB /* DownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EB94837F16CDF194005BF3EB /* DownloadOperation.h */; };
+		EB94838216CDF194005BF3EB /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB94838016CDF194005BF3EB /* DownloadOperation.m */; };
 		EBE704F216CD132E0094B867 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE704F116CD132E0094B867 /* libcrypto.dylib */; };
 /* End PBXBuildFile section */
 
@@ -196,6 +202,12 @@
 		32DBCF5E0370ADEE00C91783 /* objective-curl_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "objective-curl_Prefix.pch"; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* objective-curl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "objective-curl.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB94837716CDE405005BF3EB /* CurlHTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurlHTTP.h; sourceTree = "<group>"; };
+		EB94837816CDE405005BF3EB /* CurlHTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurlHTTP.m; sourceTree = "<group>"; };
+		EB94837B16CDE8E3005BF3EB /* Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Download.h; sourceTree = "<group>"; };
+		EB94837C16CDE8E3005BF3EB /* Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Download.m; sourceTree = "<group>"; };
+		EB94837F16CDF194005BF3EB /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
+		EB94838016CDF194005BF3EB /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
 		EBE704F116CD132E0094B867 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -288,6 +300,8 @@
 				0B76052310DF135400BE0666 /* protocol */,
 				0B76052210DF134E00BE0666 /* model */,
 				0B76051B10DF131A00BE0666 /* enum */,
+				EB94837716CDE405005BF3EB /* CurlHTTP.h */,
+				EB94837816CDE405005BF3EB /* CurlHTTP.m */,
 				0B76051310DF131500BE0666 /* CurlFTP.h */,
 				0B76051410DF131500BE0666 /* CurlFTP.m */,
 				0BB380A110E84BF4003DD538 /* CurlSFTP.h */,
@@ -333,6 +347,8 @@
 		0B76052210DF134E00BE0666 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				EB94837B16CDE8E3005BF3EB /* Download.h */,
+				EB94837C16CDE8E3005BF3EB /* Download.m */,
 				0B76053010DF13B600BE0666 /* Upload.h */,
 				0B76053110DF13B600BE0666 /* Upload.m */,
 				0BBF81F510EEB1B0005358BB /* FileTransfer.h */,
@@ -381,6 +397,8 @@
 		0BD3CFB5110CF2F700478C99 /* operations */ = {
 			isa = PBXGroup;
 			children = (
+				EB94837F16CDF194005BF3EB /* DownloadOperation.h */,
+				EB94838016CDF194005BF3EB /* DownloadOperation.m */,
 				0BD3CFF0110CF44A00478C99 /* CurlOperation.h */,
 				0BD3CFF1110CF44A00478C99 /* CurlOperation.m */,
 				0BD3D00F110CF5E700478C99 /* UploadOperation.h */,
@@ -493,6 +511,9 @@
 				0BDCB0CD11C292F100AD8451 /* S3DateUtil.h in Headers */,
 				0B9CA8DE11C408A8002E05DF /* ConnectionDelegate.h in Headers */,
 				0BA1B68F11C5DC7F005A88BC /* NSString+URLEncoding.h in Headers */,
+				EB94837916CDE405005BF3EB /* CurlHTTP.h in Headers */,
+				EB94837D16CDE8E3005BF3EB /* Download.h in Headers */,
+				EB94838116CDF194005BF3EB /* DownloadOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +659,9 @@
 				0B149EF111BF114900FB735F /* S3ListOperation.m in Sources */,
 				0BDCB0CE11C292F100AD8451 /* S3DateUtil.m in Sources */,
 				0BA1B69011C5DC7F005A88BC /* NSString+URLEncoding.m in Sources */,
+				EB94837A16CDE405005BF3EB /* CurlHTTP.m in Sources */,
+				EB94837E16CDE8E3005BF3EB /* Download.m in Sources */,
+				EB94838216CDF194005BF3EB /* DownloadOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
