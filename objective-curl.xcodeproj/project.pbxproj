@@ -12,7 +12,6 @@
 		01351E6211BE978E0091D323 /* objective-curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 01351E5F11BE978E0091D323 /* objective-curlver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		015515B411BD66E800EAB22D /* libssh2.1.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 015515B211BD66E100EAB22D /* libssh2.1.dylib */; };
 		018293C411BD5B0D00B4AEA1 /* curl-ssh-patched.h in Headers */ = {isa = PBXBuildFile; fileRef = 018293C311BD5B0D00B4AEA1 /* curl-ssh-patched.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		01C28CED11BD73DA009615C8 /* libcrypto.0.9.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BEDAD4410EC7E9C00ED2C69 /* libcrypto.0.9.7.dylib */; };
 		01C28D0011BD7488009615C8 /* libssh2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 015515B211BD66E100EAB22D /* libssh2.1.dylib */; };
 		0B01E63811B72A6B003DD235 /* S3ErrorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B01E63711B72A6B003DD235 /* S3ErrorCodes.h */; };
 		0B0A228111A9CB5700D73D5D /* .empty in Resources */ = {isa = PBXBuildFile; fileRef = 0B0A228011A9CB5700D73D5D /* .empty */; };
@@ -81,6 +80,7 @@
 		0BE0A34211A90E3400FBFB1F /* NSString+S3.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0A34011A90E3400FBFB1F /* NSString+S3.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		EBE704F216CD132E0094B867 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE704F116CD132E0094B867 /* libcrypto.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,11 +192,11 @@
 		0BDCB0CC11C292F100AD8451 /* S3DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DateUtil.m; sourceTree = "<group>"; };
 		0BE0A33F11A90E3400FBFB1F /* NSString+S3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+S3.h"; sourceTree = "<group>"; };
 		0BE0A34011A90E3400FBFB1F /* NSString+S3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+S3.m"; sourceTree = "<group>"; };
-		0BEDAD4410EC7E9C00ED2C69 /* libcrypto.0.9.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.0.9.7.dylib; path = /usr/lib/libcrypto.0.9.7.dylib; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* objective-curl_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "objective-curl_Prefix.pch"; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* objective-curl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "objective-curl.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBE704F116CD132E0094B867 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01C28CED11BD73DA009615C8 /* libcrypto.0.9.7.dylib in Frameworks */,
+				EBE704F216CD132E0094B867 /* libcrypto.dylib in Frameworks */,
 				01C28D0011BD7488009615C8 /* libssh2.1.dylib in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 			);
@@ -426,7 +426,7 @@
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0BEDAD4410EC7E9C00ED2C69 /* libcrypto.0.9.7.dylib */,
+				EBE704F116CD132E0094B867 /* libcrypto.dylib */,
 				0BB383AC10EB1DF3003DD538 /* libcurl.4.dylib */,
 				015515B211BD66E100EAB22D /* libssh2.1.dylib */,
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
@@ -546,7 +546,11 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "objective-curl" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* objective-curl */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
@@ -800,7 +804,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/include";
 			};
 			name = Debug;
@@ -819,7 +823,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/include";
 			};
 			name = Release;
