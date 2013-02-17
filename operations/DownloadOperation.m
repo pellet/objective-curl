@@ -2,11 +2,12 @@
 //  DownloadOperation.m
 //  objective-curl
 //
-//  Created by eggers on 15/02/13.
-//
+//  Created by Ben Pettit on 15/02/13.
+//  Digimulti PTY LTD 2013
 //
 
 #import "DownloadOperation.h"
+#import "FileTransfer.h"
 
 @implementation DownloadOperation
 
@@ -30,7 +31,7 @@
 //	curl_easy_setopt(handle, CURLOPT_UPLOAD, 1L);
     curl_easy_setopt(handle, CURLOPT_HTTPGET, 1L);
 	curl_easy_setopt(handle, CURLOPT_PROGRESSDATA, self);
-	curl_easy_setopt(handle, CURLOPT_PROGRESSFUNCTION, handleUploadProgress);
+	curl_easy_setopt(handle, CURLOPT_PROGRESSFUNCTION, handleDownloadProgress);
 	
         // Set interface specific auth options
 	[self setProtocolSpecificOptions];
@@ -53,18 +54,16 @@
     
 	CURLcode result = -1;
 	
-	for (int i = 0; i < [filesToUpload count]; i++)
-        {
+	for (int i = 0; i < [filesToUpload count]; i++) {
             // Begin Uploading.
 		FileTransfer *file = [filesToUpload objectAtIndex:i];
 		
-		[upload setCurrentTransfer:file];
+		[self.download setCurrentTransfer:file];
 		
-		if ([file fileNotFound])
-            {
+		if ([file fileNotFound]) {
 			NSLog(@"Local file not found: %@", [file localPath]);
 			continue;
-            }
+        }
 		
 		[self setFileSpecificOptions:file];
 		
@@ -93,8 +92,8 @@
 			break;
 		
             // Increment total files uploaded
-		[upload setTotalFilesUploaded:i + 1];
-        }
+		[self.download setTotalFilesUploaded:i + 1];
+    }
 	
         // Cleanup Curl
 	curl_easy_cleanup(handle);
@@ -117,52 +116,46 @@
  */
 static int handleDownloadProgress(DownloadOperation *operation, int connected, double dltotal, double dlnow, double ultotal, double ulnow)
 {
-	Upload *upload = [operation upload];
+	Download *download = [operation download];
 	
-	if ([upload connected] && !connected) return 0;  // Reconnecting...
+	if ([download connected] && !connected) return 0;  // Reconnecting...
 	
-	if (!connected)
-        {
-		if ([upload status] != TRANSFER_STATUS_CONNECTING)
-            {
+	if (!connected) {
+		if ([download status] != TRANSFER_STATUS_CONNECTING) {
                 // Connecting ...
-			[upload setConnected:NO];
-			[upload setStatus:TRANSFER_STATUS_CONNECTING];
+			[download setConnected:NO];
+			[download setStatus:TRANSFER_STATUS_CONNECTING];
 			
                 // Notify the delegate
 			[operation performDelegateSelector:@selector(curlIsConnecting:) withArgument:nil];
-            }
-		
         }
-	else
-        {
-		if (![upload connected])
-            {
+		
+    } else {
+		if (![download connected]) {
                 // We have a connection.
-			[upload setConnected:YES];
-			[upload setStatus:TRANSFER_STATUS_CONNECTED];
+			[download setConnected:YES];
+			[download setStatus:TRANSFER_STATUS_CONNECTED];
 			
                 // Notify the delegate
 			[operation performDelegateSelector:@selector(curlDidConnect:) withArgument:nil];
-            }
+        }
 		
-		if ([upload connected] && [upload status] != TRANSFER_STATUS_UPLOADING && ulnow > 0)
-            {
-			[upload setStatus:TRANSFER_STATUS_UPLOADING];
+        if ([download connected] && [download status] != TRANSFER_STATUS_UPLOADING && ulnow > 0) {
+			[download setStatus:TRANSFER_STATUS_UPLOADING];
             
                 // Notify the delegate
 			[operation performDelegateSelector:@selector(uploadDidBegin:) withArgument:nil];
             
                 // Start the BPS timer
 			[operation startByteTimer];
-            }
+        }
 		
 		if (ulnow > ultotal) return 0;		// This happens occasionally, not sure why...
 		
 		[operation calculateUploadProgress:ulnow total:ultotal];
-        }	
+    }	
 	
-	return ([upload cancelled] || [upload status] == TRANSFER_STATUS_FAILED);
+	return ([download cancelled] || [download status] == TRANSFER_STATUS_FAILED);
 }
 
 @end

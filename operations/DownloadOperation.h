@@ -2,8 +2,8 @@
 //  DownloadOperation.h
 //  objective-curl
 //
-//  Created by eggers on 15/02/13.
-//
+//  Created by Ben Pettit on 15/02/13.
+//  Digimulti PTY LTD 2013
 //
 
 #import "CurlOperation.h"
